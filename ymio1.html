@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YojanaMitra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .header {
+            background-color: #003366;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .input-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 95%;
+            box-sizing: border-box;
+            margin-right: 20px;
+        }
+        .input-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+        .input-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .input-container input,
+        .input-container select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-container input[type="submit"] {
+            background-color: #00cc66;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .input-container input[type="submit"]:hover {
+            background-color: #00b359;
+        }
+        .output-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #003366;
+            margin-left: 20px;
+        }
+        .bottom-section {
+            background-color: #003366;
+            color: #fff;
+            padding: 2px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .bottom-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .bottom-section p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        YojanaMitra
+    </div>
+    <div class="container">
+        <div class="input-container">
+            <h2>Enter Your Details</h2>
+            <form action="/home" method="post">
+                <input type="hidden" name="username" value="{{ session['username'] }}">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state"><br>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age"><br>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select><br>
+
+                <label for="income">Income:</label>
+                <input type="number" id="income" name="income"><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="output-container">
+            {% if output %}
+                {{ output | safe }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="bottom-section">
+        <h3>About App</h3>
+        <p>Based on user information, YojanaMitra recommends all government schemes to its users. We aim to build a society in which everyone has access to the government schemes they deserve.</p>
+        <p>Developed by Transformers, IIM Udaipur</p>
+    </div>
+</body>
+</html>

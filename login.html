@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YojanaMitra - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .header {
+            background-color: #003366;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+        /* Add your common styling here */
+        .login-signup-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .login-container, .signup-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            color: #003366;
+            width: calc(50% - 30px); /* 50% width with 30px margin */
+            margin: 20px;
+        }
+        .login-container h2, .signup-container h2 {
+            font-size: 20px; /* Reduced font size */
+            margin-bottom: 15px; /* Reduced margin */
+        }
+        .login-container p.error, .signup-container p.success {
+            color: red; /* Error messages in red */
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #00cc66;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #00b359;
+        }
+        .about-container {
+            background-color: #003366;
+            color: #fff;
+            padding: 2px;
+            text-align: center;
+            clear: both;
+            margin-top: 160px;
+        }
+        .about-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .about-container p {
+            font-size: 16px;
+        }
+        label.checkbox-label {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        YojanaMitra
+    </div>
+    <div class="login-signup-container">
+        <div class="login-container">
+            <h2>Login</h2>
+            {% if error_message %}
+                <p class="error">{{ error_message }}</p>
+            {% endif %}
+            <form action="/login" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div class="signup-container">
+            <h2>Sign Up</h2>
+            {% if success_message %}
+                <p class="success">{{ success_message }}</p>
+            {% endif %}
+            <form action="/signup" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+                <input type="checkbox" id="is_agent" name="is_agent">
+                <label class="checkbox-label" for="is_agent">Sign up as agent</label><br>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </div>
+    <div class="about-container">
+        <h3>About App</h3>
+        <p>Based on user information, YojanaMitra recommends all government schemes to its users. We aim to build a society in which everyone has access to the government schemes they deserve.</p>
+        <p>Developed by Transformers, IIM Udaipur</p>
+    </div>
+</body>
+</html>
